@@ -15,10 +15,11 @@ router.get("/new", skillsCtrl.new);
 // GET /skills/:id
 router.get("/:id", skillsCtrl.show);
 
-module.exports = router;
+
 
 //POST /skills
 router.post("/", skillsCtrl.create);
 
 //DELETE /skills
 router.delete("/:id", skillsCtrl.delete);
+module.exports = router;

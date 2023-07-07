@@ -14,7 +14,7 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.set("view engine", "ejs");
+
 
 // add middleware below the above line of code
 app.use(function (req, res, next) {
