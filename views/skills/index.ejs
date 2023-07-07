@@ -1,25 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>Express-Dev-Skills</title>
-</head>
-<body>
-  <%- include('../partials/header') %>
-  <h3>skills as of <%= time %></h3>
+<!-- Be sure the path is RELATIVE to this template--
+    <%- include('../partials/header') %>
+    <h3>skills as of <%= time %></h3>
 
-  <ul>
-    <% skills.forEach(function(t) { %>
+    <ul>
+      <% skills.forEach(function(t) { %>
       <li>
+        <form
+          action="/skills/<%= t.id %>?_method=DELETE"
+          class="delete-form"
+          method="POST"
+        >
+          <button type="submit">X</button>
+        </form>
         <a href="/skills/<%= t.id %>"><%= t.skill %></a>
-          - 
-        <%= t.done ? 'done' : 'not done' %>
+        - <%= t.done ? 'done' : 'not done' %>
       </li>
-    <% }); %>
-  </ul>
-  <a href="/skills/new">Add Skill</a>
+      <% }); %>
+    </ul>
+    <a href="/skills/new">Add Skill</a>
 
-<%- include('../partials/footer') %>
-    
+    <%- include('../partials/footer') %>
+  </body>
+</html>

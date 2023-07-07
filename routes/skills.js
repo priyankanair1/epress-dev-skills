@@ -1,25 +1,24 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-// Require the controller that exports To-Do CRUD functions
-var skillsCtrl = require('../controllers/skills');
+// Require the controller that exports skill CRUD functions
+var skillsCtrl = require("../controllers/skills");
 
+// All actual paths start with "/skills"
 
- // All actual paths start with "/skills"
+// GET /skills
+router.get("/", skillsCtrl.index);
 
- // GET /skills
- router.get('/', skillsCtrl.index);
+//GET /skills/new
+router.get("/new", skillsCtrl.new);
 
-  //GET /todos/new
-  router.get('/new', skillsCtrl.new);
-
- // GET /skills/:id
-router.get('/:id', skillsCtrl.show);
-
-
+// GET /skills/:id
+router.get("/:id", skillsCtrl.show);
 
 module.exports = router;
 
-//POST /todos
-router.post('/', skillsCtrl.create);
+//POST /skills
+router.post("/", skillsCtrl.create);
 
+//DELETE /skills
+router.delete("/:id", skillsCtrl.delete);
